@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f3f6fb;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: #27303e;
+}
+.container {
+    max-width: 820px;
+    margin: 40px auto;
+    padding: 0 1.2em 3em;
+}
+header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+h1 {
+    margin-bottom: 0.2em;
+    font-size: 2.2em;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #3855b3;
+}
+.subtitle {
+    color: #7282ac;
+    font-size: 1.07em;
+    font-weight: 400;
+    margin-bottom: 2em;
+}
+.card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 3px 18px 0 #bfc7e233;
+    margin-bottom: 2em;
+    padding: 2em 1.5em 1.2em;
+    transition: box-shadow 0.16s;
+}
+.card:hover {
+    box-shadow: 0 7px 28px 0 #bfc7e299;
+}
+.docs .endpoint {
+    border-left: 4px solid #4d72ec;
+    margin-bottom: 1.5em;
+    padding-left: 1em;
+}
+.docs .ep {
+    color: #274fc2;
+    background: #eaf0ff;
+    border-radius: 3px;
+    padding: 0 7px;
+    font-weight: 600;
+    font-family: monospace;
+    font-size: 1.06em;
+}
+.endpoint pre {
+    margin: 0.2em 0 0.7em;
+    background: #f8f9fb;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    color: #243055;
+}
+.endpoint code {
+    font-family: 'Fira Mono', monospace;
+    color: #223472;
+}
+.flex-form {
+    display: flex;
+    gap: 0.9em;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1em;
+}
+.flex-form input {
+    flex: 1 1 130px;
+    padding: 0.56em;
+    border-radius: 6px;
+    border: 1px solid #bfc9de;
+    font-size: 1em;
+}
+.flex-form button {
+    background: #4565e8;
+    color: #fff;
+    padding: 0.6em 1.4em;
+    border: none;
+    border-radius: 7px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 1px 6px #bfc7e21a;
+    transition: background 0.2s;
+}
+.flex-form button:hover {
+    background: #3855b3;
+}
+.secondary {
+    background: #eaf0ff;
+    color: #4565e8;
+    border: 1px solid #bfc9de;
+    font-weight: 600;
+    border-radius: 7px;
+    padding: 0.55em 1.2em;
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+.secondary:hover {
+    background: #e2eaff;
+}
+.events-list {
+    margin: 1em 0 0 0;
+    padding-left: 1.3em;
+    list-style-type: disc;
+    color: #252e48;
+}
+.events-list li {
+    margin-bottom: 0.4em;
+    font-family: 'Fira Mono', monospace;
+    font-size: 0.99em;
+}
+.result {
+    font-weight: 500;
+    color: #258925;
+    min-height: 1.5em;
+    margin-top: 0.3em;
+}
+@media (max-width: 650px) {
+    .container { padding: 0 0.4em; }
+    .card { padding: 1.2em 0.8em 0.8em; }
+    .flex-form { flex-direction: column; gap: 0.4em; }
+}

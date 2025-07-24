@@ -1,0 +1,31 @@
+.chalice/deployments/
+.chalice/venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+serverless_event_backend/venv/
+.env
+
+
+# SQLite
+*.db
+
+# Chalice
+.chalice/deployments/
+.chalice/venv/
+
+# Docker
+*.log
+*.pid
+
+# VSCode/IDE
+.idea/
+.vscode/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+secrets.env
