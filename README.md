@@ -8,14 +8,20 @@ Easily ingest, view, and summarize user events locally—no AWS account required
 ## 🚀 Quick Start
 
 1. **Clone and Run the Project**
-
+    if you are on linux environment
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/amgad-23/serverless_event_tracking.git
    cd serverless_tracking
    ./run.sh
    ```
    *(Or see "Manual Setup" below if you prefer to run steps individually)*
-
+    if you are on windows environment
+    ```bash
+   git clone https://github.com/amgad-23/serverless_event_tracking.git
+   cd serverless_tracking
+   ./run.bat
+   ```
+   
 2. **Access the app:**
    - **Backend API:** [http://localhost:8000](http://localhost:8000)
    - **Frontend UI:** [http://localhost:3000](http://localhost:3000)
@@ -40,6 +46,9 @@ serverless_tracking/
 │     └── ...
 ├── venv/                         # Python virtual environment (auto-created)
 ├── run.sh                        # Quick setup and run script (Bash)
+├── .gitignore                    # Git ignore file
+├── .chalice/                     # Chalice configuration files
+├── run.bat 
 └── README.md                     # This file
 ```
 

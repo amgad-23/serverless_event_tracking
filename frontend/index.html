@@ -7,39 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <header>
-        <h1>Serverless Event Tracker</h1>
-        <p class="subtitle">Lightweight serverless event logging and analytics API</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Serverless Event Tracker</h1>
+            <p class="subtitle">Lightweight serverless event logging and analytics API</p>
+        </header>
 
-    <section class="card docs">
-        <h2>API Documentation</h2>
-        <div class="endpoint">
-            <h3>GET <span class="ep">/</span></h3>
-            <p>Returns API documentation in HTML (this page).</p>
-            <pre><code>200 OK
+        <section class="card docs">
+            <h2>API Documentation</h2>
+            <div class="endpoint">
+                <h3>GET <span class="ep">/</span></h3>
+                <p>Returns API documentation in HTML (this page).</p>
+                <pre><code>200 OK
 Content-Type: text/html</code></pre>
-        </div>
-        <div class="endpoint">
-            <h3>POST <span class="ep">/events</span></h3>
-            <p>Create a new event. All fields required.</p>
-            <b>Request Body (JSON):</b>
-            <pre><code>{
+            </div>
+            <div class="endpoint">
+                <h3>POST <span class="ep">/events</span></h3>
+                <p>Create a new event. All fields required.</p>
+                <b>Request Body (JSON):</b>
+                <pre><code>{
   "user_id": "123",
   "event_type": "click",
   "timestamp": "2025-07-24T12:00:00Z"
 }</code></pre>
-            <b>Response:</b>
-            <pre><code>{
+                <b>Response:</b>
+                <pre><code>{
   "message": "Event created"
 }</code></pre>
-        </div>
-        <div class="endpoint">
-            <h3>GET <span class="ep">/events</span></h3>
-            <p>List up to 10 most recent events.</p>
-            <b>Response:</b>
-            <pre><code>{
+            </div>
+            <div class="endpoint">
+                <h3>GET <span class="ep">/events</span></h3>
+                <p>List up to 10 most recent events.</p>
+                <b>Response:</b>
+                <pre><code>{
   "events": [
     {
       "user_id": "123",
@@ -49,45 +49,62 @@ Content-Type: text/html</code></pre>
     ...
   ]
 }</code></pre>
-        </div>
-        <div class="endpoint">
-            <h3>GET <span class="ep">/summary</span></h3>
-            <p>Get event counts. <b>Optional query params:</b> <code>user_id</code>, <code>event_type</code></p>
-            <pre><code>GET /summary?user_id=123&event_type=click</code></pre>
-            <b>Response:</b>
-            <pre><code>{
+            </div>
+            <div class="endpoint">
+                <h3>GET <span class="ep">/summary</span></h3>
+                <p>Get event counts. <b>Optional query params:</b> <code>user_id</code>, <code>event_type</code></p>
+                <pre><code>GET /summary?user_id=123&event_type=click</code></pre>
+                <b>Response:</b>
+                <pre><code>{
   "total_events": 7
 }</code></pre>
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <section class="card">
-        <h2>Add Event</h2>
-        <form id="event-form" class="flex-form">
-            <input type="text" id="user_id" placeholder="User ID" required>
-            <input type="text" id="event_type" placeholder="Event Type" required>
-            <input type="datetime-local" id="timestamp" required>
-            <button type="submit">Submit</button>
-        </form>
-        <div id="event-result" class="result"></div>
-    </section>
+        <section class="card">
+            <h2>Add Event</h2>
+            <form id="event-form" class="flex-form">
+                <input type="text" id="user_id" placeholder="User ID" required>
+                <input type="text" id="event_type" placeholder="Event Type" required>
+                <input type="datetime-local" id="timestamp" required>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="event-result" class="result"></div>
+        </section>
 
-    <section class="card">
-        <h2>Recent Events</h2>
-        <button class="secondary" id="refresh-summary" style="margin-top:10px;">Refresh</button>
-        <ul id="events" class="events-list"></ul>
-    </section>
+        <section class="card">
+            <div class="events-header">
+                <h2>Recent Events</h2>
+                <div class="events-count" id="events-count">Loading...</div>
+            </div>
 
-    <section class="card">
-        <h2>Summary</h2>
-        <form id="summary-form" class="flex-form">
-            <input type="text" id="summary-user_id" placeholder="User ID">
-            <input type="text" id="summary-event_type" placeholder="Event Type">
-            <button type="submit">Get Summary</button>
-        </form>
-        <div id="summary-result" class="result"></div>
-    </section>
-</div>
-<script src="script.js"></script>
+            <div class="filter-controls">
+                <input type="text" id="filter-user" class="filter-input" placeholder="Filter by User ID">
+                <input type="text" id="filter-type" class="filter-input" placeholder="Filter by Event Type">
+                <button class="clear-filters" id="clear-filters">Clear Filters</button>
+                <button class="secondary" id="refresh-events">Refresh Events</button>
+            </div>
+
+            <div class="events-container" id="events-container">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📊</div>
+                    <p>Loading events...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Summary</h2>
+            <form id="summary-form" class="flex-form">
+                <input type="text" id="summary-user_id" placeholder="User ID">
+                <input type="text" id="summary-event_type" placeholder="Event Type">
+                <button type="submit">Get Summary</button>
+            </form>
+            <button class="secondary" id="refresh-summary" style="margin-top:10px;">Refresh Summary</button>
+            <div id="summary-result" class="result"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

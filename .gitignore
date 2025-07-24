@@ -8,7 +8,7 @@ __pycache__/
 *.pyd
 serverless_event_backend/venv/
 .env
-
+venv
 
 # SQLite
 *.db
